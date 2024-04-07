@@ -137,17 +137,17 @@ function queuPromises(promises) {
   let result = '';
   let sequence = Promise.resolve();
 
-  promises.forEach(function (promise) {
+  promises.forEach((promise) => {
     sequence = sequence
-      .then(function () {
+      .then(() => {
         return promise;
       })
-      .then(function (value) {
+      .then((value) => {
         result += value;
       });
   });
 
-  return sequence.then(function () {
+  return sequence.then(() => {
     return result;
   });
 }
